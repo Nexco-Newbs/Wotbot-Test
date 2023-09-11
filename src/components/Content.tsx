@@ -1,4 +1,6 @@
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
+import PageRouter from "./PageRouter";
 
 const ContentRoot = styled.div`
   display: block;
@@ -9,7 +11,8 @@ const ContentRoot = styled.div`
 
 function Content() {
     return (<ContentRoot>
-        Content here
+        <PageRouter />
+        <Outlet />
     </ContentRoot>)
 
 }

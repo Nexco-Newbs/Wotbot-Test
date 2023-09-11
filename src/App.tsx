@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Content from './components/Content';
 import Footer from './components/Footer';
@@ -5,11 +6,13 @@ import Header from './components/Header';
 
 function App() {
   return (
-    <>
-      <Header />
-      <Content/>
-      <Footer/>
-    </>
+    <BrowserRouter>
+      <>
+        <Header />
+        <Content />
+        <Footer />
+      </>
+    </BrowserRouter>
   );
 }
 

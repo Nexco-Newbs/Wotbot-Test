@@ -5,7 +5,6 @@ display: block;
 `
 
 function Templage() {
-
     return (
         <TemplageRoot>
             THIS IS A TEMPLATE PAGE CALLED TEMPLATE
