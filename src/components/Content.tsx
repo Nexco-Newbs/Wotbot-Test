@@ -4,9 +4,9 @@ import PageRouter from "./PageRouter";
 
 const ContentRoot = styled.div`
   display: block;
-  min-height: 20rem;
+  min-height: 40rem;
   width:100%;
-  background-color: #ec2c2c;
+  background-color: #FAFAFA;
 `;
 
 function Content() {

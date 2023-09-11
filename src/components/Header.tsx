@@ -3,14 +3,14 @@ import Navbar from "./Navbar";
 
 const HeaderRoot = styled.div`
 display:block;
-min-height: 20vh;
-width:100%;
-background-color: #a56767;
+min-height: 15vh;
+background-color: #ffffff;
+margin: auto;
 `
-
-
 function Header() {
-    return (<HeaderRoot><Navbar /></HeaderRoot>)
+    return (<HeaderRoot>
+        <Navbar />
+    </HeaderRoot>)
 }
 
 export default Header;

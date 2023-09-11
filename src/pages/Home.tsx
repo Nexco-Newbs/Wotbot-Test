@@ -4,13 +4,29 @@ import styled from "styled-components"
 const HomeRoot = styled.div`
   display: block;
 `
+const HomeContainer = styled.div`
+  display:flex;
+  width:100%;
+  min-height:30rem;
+  justify-content:center;
+  align-items: center;
+`
+
 
 const MuiDiv = styled(Paper)`
-background-color: #1a18187a;
+display:flex;
+background-color: #ffffff;
+height:10rem;
+width:10rem;
 `;
 
 function Home() {
-    return (<HomeRoot><MuiDiv>MUI DIV</MuiDiv></HomeRoot>)
+  return (<HomeRoot>
+
+    <HomeContainer>
+      <MuiDiv>MUI DIV</MuiDiv>
+    </HomeContainer>
+  </HomeRoot>)
 }
 
 export default Home
