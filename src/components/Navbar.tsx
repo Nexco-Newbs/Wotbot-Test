@@ -11,7 +11,7 @@ const StyledLink = styled(Link)`
 
 const navbarLinks = [{
     name: "Home",
-    link: "/none",
+    link: "/",
 },
 {
     name: "Template Page",
