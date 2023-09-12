@@ -1,5 +1,5 @@
 import { AppBar, Toolbar,Button } from "@mui/material";
-import placeholderlogo from "../resources/logo_placeholder.png"
+import nexcoblack from "../resources/nexco_logo_black.png"
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -20,7 +20,7 @@ const StyledLink = styled(Link)`
 `;
 const NavbarImg = styled.img`
     display:flex;
-    height:8rem;
+    height:7rem;
 `
 const NavbarButtons = styled.div`
 margin-left: auto;
@@ -34,13 +34,17 @@ color:white;
 `
 const navbarLinks = [
     {
-        name: "Home",
+        name: "Account",
         link: "/",
     },
     {
-        name: "Template Page",
-        link: "/templage",
+        name: "Linekey",
+        link: "/linekey",
     },
+    {
+        name: "Expansion Module",
+        link: "/expansion",
+    }
 ];
 
 function Navbar() {
@@ -49,7 +53,7 @@ function Navbar() {
             <StyledAppBar>
                 <Toolbar>
                     <StyledLink to="/">
-                        <NavbarImg src={placeholderlogo}/>
+                        <NavbarImg src={nexcoblack}/>
                     </StyledLink>
                     <NavbarButtons>
                         {navbarLinks.map((data) => {
