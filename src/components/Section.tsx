@@ -14,6 +14,7 @@ const SectionTitle = styled.div`
 display:flex;
 font-size: x-large;
 font-weight: 600;
+margin-bottom: 1rem;
 `
 
 const SectionContainer = styled.div`

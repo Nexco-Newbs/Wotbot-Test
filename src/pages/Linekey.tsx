@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
-import Section from "../components/Section"
 import LinekeyModule from "../sections/LinekeyModule"
+import DebugSection from "../sections/Debug"
 
 const LinekeyRoot = styled.div`
 display: block;
@@ -11,6 +11,7 @@ const LinekeyContainer = styled.div`
   width:100%;
   justify-content:center;
   align-items: center;
+  flex-direction: column;
 `
 
 function Linekey() {
@@ -19,6 +20,7 @@ function Linekey() {
         <LinekeyRoot>
             <LinekeyContainer>
                 <LinekeyModule/>
+                <DebugSection/>
             </LinekeyContainer>
         </LinekeyRoot>
     )

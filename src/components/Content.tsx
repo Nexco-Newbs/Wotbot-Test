@@ -5,16 +5,17 @@ import PageRouter from "./PageRouter";
 const ContentRoot = styled.div`
   display: block;
   min-height: 40rem;
-  width:100%;
-  background-color: #FAFAFA;
+  width: 100%;
+  background-color: #fafafa;
 `;
 
 function Content() {
-    return (<ContentRoot>
-        <PageRouter />
-        <Outlet />
-    </ContentRoot>)
-
+  return (
+    <ContentRoot>
+      <PageRouter />
+      <Outlet />
+    </ContentRoot>
+  );
 }
 
-export default Content
+export default Content;
