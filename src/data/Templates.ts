@@ -56,15 +56,15 @@ export type Account = {
 
 export const YealinkAccount: Account = {
   account_number: 1,
-  label: "Yealink Name",
-  display_name: "Yealink Name",
-  authorization_name: "Yealink Auth Name",
-  password: "",
-  username: "",
-  sip_server_host: "",
+  label: "[DISPLAY_NAME]",
+  display_name: "[DISPLAY_NAME]",
+  authorization_name: " [EXTENSION]",
+  password: "[PASSWORD]",
+  username: "[EXTENSION]",
+  sip_server_host: "[SERVER]",
   sip_server_port: 0,
-  cid_source: 0,
-  cp_source: 0,
+  cid_source: 4,
+  cp_source: 4,
   proxy_enable: false,
   proxy_outbound_host: "",
   proxy_outbound_port: 0,
@@ -84,6 +84,6 @@ export type Template = {
 
 export const defaultTemplate: Template = {
   accounts: [{...YealinkAccount},{...YealinkAccount}],
-  linekeys: [defaultLineKey],
-  expansionkeys: [defaultExpansionKey],
+  linekeys: [ {...defaultLineKey},{...defaultLineKey},{...defaultLineKey}],
+  expansionkeys: [{...defaultExpansionKey},{...defaultExpansionKey},{...defaultExpansionKey},{...defaultExpansionKey}],
 };
