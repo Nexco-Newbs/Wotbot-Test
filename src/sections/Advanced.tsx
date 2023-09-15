@@ -119,7 +119,6 @@ function AdvancedSection() {
             </LineSection>
             <LineSection>
               <FormControlLabel
-                //FIX THIS SHIT
                 control={
                   <Checkbox
                     defaultChecked={data.proxy_enable}

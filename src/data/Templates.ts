@@ -1,6 +1,6 @@
 export type LineKey = {
   line_number: number;
-  type: 13 | 16;
+  type: number;
   line_value: number;
   value: number;
   label: string;
@@ -84,6 +84,6 @@ export type Template = {
 
 export const defaultTemplate: Template = {
   accounts: [{...YealinkAccount},{...YealinkAccount}],
-  linekeys: [ {...defaultLineKey},{...defaultLineKey},{...defaultLineKey}],
+  linekeys: [{...defaultLineKey, line_number:1},{...defaultLineKey, line_number:2},{...defaultLineKey, line_number:3}],
   expansionkeys: [{...defaultExpansionKey},{...defaultExpansionKey},{...defaultExpansionKey},{...defaultExpansionKey}],
 };
