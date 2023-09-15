@@ -27,7 +27,7 @@ const LineKeyTab = styled(Paper)`
   margin: 1rem 0 2rem 0;
 `;
 
-const AddNew = styled(Button)`
+const AddNewButton = styled(Button)`
   color: white;
   background-color: #2221219e;
   &:hover {
@@ -109,7 +109,7 @@ function LinekeyModule() {
           </LineKeyTab>
         );
       })}
-      <AddNew
+      <AddNewButton
         onClick={() => {
           if (currentTemplate.linekeys !== undefined) {
             const linekeysCopy = [...currentTemplate.linekeys];
@@ -125,7 +125,7 @@ function LinekeyModule() {
         }}
       >
         Add New
-      </AddNew>
+      </AddNewButton>
     </Section>
   );
 }

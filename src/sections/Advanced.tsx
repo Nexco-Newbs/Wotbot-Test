@@ -1,8 +1,15 @@
 import styled from "styled-components";
 import Section from "../components/Section";
-import { Checkbox, FormControlLabel, Paper, TextField } from "@mui/material";
+import {
+  Button,
+  Checkbox,
+  FormControlLabel,
+  Paper,
+  TextField,
+} from "@mui/material";
 import { useContext } from "react";
 import { globalContextTypes, GlobalContext } from "../App";
+import { YealinkAccount } from "../data/Templates";
 
 const LineSection = styled.div`
   display: flex;
@@ -15,6 +22,14 @@ const AccountTab = styled(Paper)`
   width: 90%;
   flex-direction: column;
   margin: 1rem 0 2rem 0;
+`;
+
+const AddNewButton = styled(Button)`
+  color: white;
+  background-color: #2221219e;
+  &:hover {
+    background-color: #222121bc;
+  }
 `;
 
 function AdvancedSection() {
@@ -158,6 +173,20 @@ function AdvancedSection() {
           </AccountTab>
         );
       })}
+      <AddNewButton
+        onClick={() => {
+          if (currentTemplate.accounts !== undefined) {
+            const accountsCopy = [...currentTemplate.accounts];
+            accountsCopy.push({ ...YealinkAccount, account_number:accountsCopy.length+1 });
+            setcurrentTemplate({
+              ...currentTemplate,
+              accounts: accountsCopy,
+            });
+          }
+        }}
+      >
+        Add New
+      </AddNewButton>
     </Section>
   );
 }
