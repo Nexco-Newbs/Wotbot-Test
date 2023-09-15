@@ -85,5 +85,5 @@ export type Template = {
 export const defaultTemplate: Template = {
   accounts: [{...YealinkAccount,account_number:1}],
   linekeys: [{...defaultLineKey, line_number:1},{...defaultLineKey, line_number:2},{...defaultLineKey, line_number:3}],
-  expansionkeys: [{...defaultExpansionKey},{...defaultExpansionKey},{...defaultExpansionKey},{...defaultExpansionKey}],
+  expansionkeys: [{...defaultExpansionKey, line_number:1}],
 };
