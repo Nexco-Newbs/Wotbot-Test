@@ -7,8 +7,13 @@ import {
   AccordionSummary,
   Button,
   Checkbox,
+  FormControl,
   FormControlLabel,
+  InputLabel,
+  MenuItem,
   Paper,
+  Select,
+  SelectChangeEvent,
   TextField,
   Typography,
 } from "@mui/material";
@@ -36,6 +41,20 @@ const AddNewButton = styled(Button)`
     background-color: #222121bc;
   }
 `;
+
+type transportType = {
+  number: number;
+  name: string;
+};
+
+const transportTypes :transportType[] = [
+  {number: 0 , name : "UDP"},
+  {number: 1 , name : "TCP"},
+  {number: 2 , name : "TLS"},
+  {number: 3 , name : "DNS/NAPTR"},
+]
+
+
 
 function AdvancedSection() {
   const { currentTemplate, setcurrentTemplate }: globalContextTypes =
@@ -191,6 +210,36 @@ function AdvancedSection() {
                 ) : (
                   <></>
                 )}
+                <LineSection>
+                <FormControl>
+                <InputLabel>SIP Server Transport Type</InputLabel>
+                <Select
+                  label="SIP Server Transport Type"
+                  sx={{
+                    width: "15rem",
+                  }}
+                  onChange={(e: SelectChangeEvent) => {
+                    const newValue = parseInt(e.target.value);
+                    if (currentTemplate.accounts !== undefined) {
+                      const accountsCopy = [...currentTemplate.accounts];
+                      accountsCopy[index].sip_trans_type = newValue;
+                      setcurrentTemplate({
+                        ...currentTemplate,
+                        accounts: accountsCopy,
+                      });
+                    }
+                  }}
+                >
+                  {transportTypes.map((data) => {
+                    return (
+                      <MenuItem value={data.number}>
+                        {data.number + " - " + data.name}
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </FormControl>
+                </LineSection>
               </AccordionDetails>
             </Accordion>
           </AccountTab>

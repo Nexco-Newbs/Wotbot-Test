@@ -41,8 +41,24 @@ type expkeyType = {
 };
 
 const expkeyTypes: expkeyType[] = [
+  { number: 1, name: "Conference" },
+  { number: 2, name: "Forward" },
+  { number: 3, name: "Transfer" },
+  { number: 4, name: "Hold" },
+  { number: 5, name: "DND" },
+  { number: 7, name: "Call Return" },
+  { number: 8, name: "SMS" },
+  { number: 9, name: "Directed Pickup" },
+  { number: 10, name: "Call Park" },
+  { number: 11, name: "DTMF" },
+  { number: 12, name: "Voicemail" },
   { number: 13, name: "SpeedDial" },
+  { number: 14, name: "Intercom" },
+  { number: 15, name: "SpeedDial" },
   { number: 16, name: "BLF" },
+  { number: 17, name: "URL" },
+  { number: 18, name: "Group Listening" },
+  { number: 20, name: "Private Hold" },
 ];
 
 function ExpModule() {
@@ -58,6 +74,9 @@ function ExpModule() {
                 label="Module Number"
                 variant="outlined"
                 defaultValue={data.module_number || ""}
+                sx={{
+                  width: "8rem",
+                }}
                 disabled
               />
             </LineSection>
@@ -66,7 +85,26 @@ function ExpModule() {
                 label="Line Number"
                 variant="outlined"
                 defaultValue={data.line_number || ""}
+                sx={{
+                  width: "8rem",
+                }}
                 disabled
+              />
+              <TextField
+                label="Label"
+                variant="outlined"
+                defaultValue={data.label || ""}
+                onChange={(e) => {
+                  const newValue = e.target.value;
+                  if (currentTemplate.expansionkeys !== undefined) {
+                    const expkeysCopy = [...currentTemplate.expansionkeys];
+                    expkeysCopy[index].label = newValue;
+                    setcurrentTemplate({
+                      ...currentTemplate,
+                      expansionkeys: expkeysCopy,
+                    });
+                  }
+                }}
               />
               <FormControl>
                 <InputLabel>Key Type</InputLabel>
