@@ -41,8 +41,24 @@ type linekeyType = {
 };
 
 const linekeytypes: linekeyType[] = [
+  { number: 1, name: "Conference" },
+  { number: 2, name: "Forward" },
+  { number: 3, name: "Transfer" },
+  { number: 4, name: "Hold" },
+  { number: 5, name: "DND" },
+  { number: 7, name: "Call Return" },
+  { number: 8, name: "SMS" },
+  { number: 9, name: "Directed Pickup" },
+  { number: 10, name: "Call Park" },
+  { number: 11, name: "DTMF" },
+  { number: 12, name: "Voicemail" },
   { number: 13, name: "SpeedDial" },
+  { number: 14, name: "Intercom" },
+  { number: 15, name: "SpeedDial" },
   { number: 16, name: "BLF" },
+  { number: 17, name: "URL" },
+  { number: 18, name: "Group Listening" },
+  { number: 20, name: "Private Hold" },
 ];
 
 function LinekeyModule() {
@@ -58,6 +74,9 @@ function LinekeyModule() {
                 label="Line Number"
                 variant="outlined"
                 defaultValue={data.line_number || ""}
+                sx={{
+                  width: "8rem",
+                }}
                 onChange={(e) => {
                   const newValue = parseInt(e.target.value);
                   if (currentTemplate.linekeys !== undefined) {
@@ -69,6 +88,43 @@ function LinekeyModule() {
                     });
                   }
                 }}
+              />
+            </LineSection>
+            <LineSection>
+              <TextField
+                label="Label"
+                variant="outlined"
+                defaultValue={data.label || ""}
+                onChange={(e) => {
+                  const newValue = e.target.value;
+                  if (currentTemplate.linekeys !== undefined) {
+                    const linekeysCopy = [...currentTemplate.linekeys];
+                    linekeysCopy[index].label = newValue;
+                    setcurrentTemplate({
+                      ...currentTemplate,
+                      linekeys: linekeysCopy,
+                    });
+                  }
+                }}
+              />
+              <TextField
+                label="Value"
+                variant="outlined"
+                defaultValue={data.value}
+                onChange={(e) => {
+                  const newValue = parseInt(e.target.value);
+                  if (currentTemplate.linekeys !== undefined) {
+                    const linekeysCopy = [...currentTemplate.linekeys];
+                    linekeysCopy[index].value = newValue;
+                    setcurrentTemplate({
+                      ...currentTemplate,
+                      linekeys: linekeysCopy,
+                    });
+                  }
+                }}
+
+
+
               />
               <FormControl>
                 <InputLabel>Linekey Type</InputLabel>
@@ -99,13 +155,6 @@ function LinekeyModule() {
                 </Select>
               </FormControl>
             </LineSection>
-            <LineSection>
-              <TextField
-                label="Label"
-                variant="outlined"
-                defaultValue={data.label || ""}
-              />
-            </LineSection>
           </LineKeyTab>
         );
       })}
@@ -115,7 +164,7 @@ function LinekeyModule() {
             const linekeysCopy = [...currentTemplate.linekeys];
             linekeysCopy.push({
               ...defaultLineKey,
-              line_number: linekeysCopy.length+1,
+              line_number: linekeysCopy.length + 1,
             });
             setcurrentTemplate({
               ...currentTemplate,

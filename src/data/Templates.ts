@@ -11,7 +11,7 @@ export const defaultLineKey: LineKey = {
   type: 13,
   line_value: 1,
   value: 0,
-  label: "",
+  label: "Name Not Set",
 };
 
 export type ExpansionKey = {
