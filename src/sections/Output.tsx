@@ -141,28 +141,28 @@ function OutputSection() {
               {/* Need to clarify which is which */}
               {"expansion_module." +
                 data.module_number +
-                "" +
+                ".key." +
                 data.line_number +
                 ".line = " +
                 data.line_value}
               <br />
               {"expansion_module." +
                 data.module_number +
-                "" +
+                ".key." +
                 data.line_number +
                 ".type = " +
                 data.type}
               <br />
               {"expansion_module." +
                 data.module_number +
-                "" +
+                ".key." +
                 data.line_number +
                 ".value = " +
                 data.value}
               <br />
               {"expansion_module." +
                 data.module_number +
-                "" +
+                ".key." +
                 data.line_number +
                 ".label = " +
                 data.label}

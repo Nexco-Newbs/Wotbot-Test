@@ -131,6 +131,27 @@ function ExpModule() {
                   }
                 }}
               />
+                <TextField
+                label="Value"
+                variant="outlined"
+                defaultValue={data.value || ""}
+                onChange={(e) => {
+                  const newValue = parseInt(e.target.value);
+                  if (currentTemplate.expansionkeys !== undefined) {
+                    const expkeysCopy = [...currentTemplate.expansionkeys];
+                    expkeysCopy[index].value = newValue;
+                    setcurrentTemplate({
+                      ...currentTemplate,
+                      expansionkeys: expkeysCopy,
+                    });
+                  }
+                }}
+              />
+
+
+
+
+
               <FormControl>
                 <InputLabel shrink >Key Type</InputLabel>
                 <Select
