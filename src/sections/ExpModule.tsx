@@ -44,6 +44,7 @@ type expkeyType = {
 };
 
 const expkeyTypes: expkeyType[] = [
+  { number: 0, name: "NA" },
   { number: 1, name: "Conference" },
   { number: 2, name: "Forward" },
   { number: 3, name: "Transfer" },
@@ -62,6 +63,27 @@ const expkeyTypes: expkeyType[] = [
   { number: 17, name: "URL" },
   { number: 18, name: "Group Listening" },
   { number: 20, name: "Private Hold" },
+  { number: 22, name: "XML Group" },
+  { number: 23, name: "Group Pickup" },
+  { number: 24, name: "Multicast Paging" },
+  { number: 25, name: "Record" },
+  { number: 27, name: "XML Browser" },
+  { number: 34, name: "Hot Desking" },
+  { number: 35, name: "URL Record" },
+  { number: 38, name: "LDAP" },
+  { number: 39, name: "BLF List" },
+  { number: 40, name: "Prefix" },
+  { number: 41, name: "Zero Touch" },
+  { number: 42, name: "ACD" },
+  { number: 45, name: "Local Group" },
+  { number: 46, name: "Network Group" },
+  { number: 49, name: "Custom Button" },
+  { number: 50, name: "Keypad Lock" },
+  { number: 55, name: "Meet-Me Conference" },
+  { number: 58, name: "Retrieve Park" },
+  { number: 59, name: "ACD Grace" },
+  { number: 60, name: "Emergency" },
+  { number: 61, name: "Directory" },
 ];
 
 function ExpModule() {
@@ -110,11 +132,23 @@ function ExpModule() {
                 }}
               />
               <FormControl>
-                <InputLabel>Key Type</InputLabel>
+                <InputLabel shrink >Key Type</InputLabel>
                 <Select
                   label="Key Type"
                   sx={{
                     width: "15rem",
+                  }}
+                  displayEmpty={true}
+                  notched={true}
+                  renderValue={() => {
+                    const element = expkeyTypes.find(
+                      (item) => item.number === data.type
+                    );
+                    return (
+                      <MenuItem>
+                        {element?.number + " - " + element?.name}
+                      </MenuItem>
+                    );
                   }}
                   onChange={(e: SelectChangeEvent) => {
                     const newValue = parseInt(e.target.value);

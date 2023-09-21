@@ -273,6 +273,9 @@ function AdvancedSection() {
                     <TextField
                       label="Outbound Port"
                       variant="outlined"
+                      sx={{
+                        width: "7rem",
+                      }}
                       defaultValue={data.proxy_outbound_port}
                       onChange={(e) => {
                         const newValue = parseInt(e.target.value);
@@ -338,7 +341,7 @@ function AdvancedSection() {
                   <FormControl>
                     <InputLabel shrink={true}>SRTP Encryption</InputLabel>
                     <Select
-                      label="SRTP Encryption type"
+                      label="SRTP Encryption"
                       sx={{
                         width: "15rem",
                       }}
@@ -448,6 +451,9 @@ function AdvancedSection() {
                     <TextField
                       label="Session Timer Expire"
                       variant="outlined"
+                      sx={{
+                        width: "10rem",
+                      }}
                       defaultValue={data.session_timer_expire || ""}
                       onChange={(e) => {
                         const newValue = parseInt(e.target.value);
