@@ -214,7 +214,7 @@ function AdvancedSection() {
                   <TextField
                     label="CP Source"
                     variant="outlined"
-                    defaultValue={data.cp_source || ""}
+                    defaultValue={data.cp_source}
                     sx={{
                       width: "7rem",
                     }}

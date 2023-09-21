@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Section from "../components/Section";
 import {
+  Button,
   Card,
   Checkbox,
   FormControl,
@@ -27,12 +28,22 @@ const CardContainer = styled.div`
 
 const StyledCard = styled(Card)`
   display: flex;
+  flex-direction: column;
   min-height: 7rem;
   min-width: 7rem;
   margin: 0 2rem 0 2rem;
   padding: 0 1rem 0 1rem;
   justify-content: center;
   align-items: center;
+`;
+
+const SelectButton = styled(Button)`
+  margin: 0.75rem;
+  background-color: #ff4a4a;
+  color: white;
+  &:hover {
+    background-color: #ff4a4aa4;
+  }
 `;
 
 const templates = [
@@ -51,7 +62,7 @@ function BasicSection() {
           return (
             <StyledCard>
               {data}
-              <Checkbox />
+              <SelectButton>Select</SelectButton>
             </StyledCard>
           );
         })}

@@ -8,7 +8,7 @@ export type LineKey = {
 
 export const defaultLineKey: LineKey = {
   line_number: 0,
-  type: 13,
+  type: 0,
   line_value: 1,
   value: 0,
   label: "John Doe",
