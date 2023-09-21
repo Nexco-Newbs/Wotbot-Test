@@ -1,6 +1,7 @@
 import { styled } from "styled-components"
 import LinekeyModule from "../sections/LinekeyModule"
 import DebugSection from "../sections/Debug"
+import OutputSection from "../sections/Output"
 
 const LinekeyRoot = styled.div`
 display: block;
@@ -19,6 +20,7 @@ function Linekey() {
         <LinekeyRoot>
             <LinekeyContainer>
                 <LinekeyModule/>
+                <OutputSection/>
                 <DebugSection/>
             </LinekeyContainer>
         </LinekeyRoot>

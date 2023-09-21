@@ -64,7 +64,7 @@ export const YealinkAccount: Account = {
   sip_server_host: "[SERVER]",
   sip_server_port: 0,
   cid_source: 4,
-  cp_source: 4,
+  cp_source: 0,
   proxy_enable: false,
   proxy_outbound_host: "proxy.nx0.ca",
   proxy_outbound_port: 0,

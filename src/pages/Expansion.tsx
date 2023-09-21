@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ExpModule from "../sections/ExpModule";
 import DebugSection from "../sections/Debug";
+import OutputSection from "../sections/Output";
 
 const ExpansionRoot = styled.div`
   display: block;
@@ -19,6 +20,7 @@ function Expansion() {
         <ExpansionRoot>
             <ExpansionContainer>
                 <ExpModule />
+                <OutputSection/>
                 <DebugSection/>
             </ExpansionContainer>
         </ExpansionRoot>

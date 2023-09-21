@@ -2,6 +2,7 @@ import styled from "styled-components";
 import BasicSection from "../sections/Basic";
 import AdvancedSection from "../sections/Advanced";
 import DebugSection from "../sections/Debug";
+import OutputSection from "../sections/Output";
 
 const AccountRoot = styled.div`
   display: block;
@@ -21,6 +22,7 @@ function Account() {
       <AccountContainer>
         <BasicSection />
         <AdvancedSection />
+        <OutputSection/>
         <DebugSection/>
       </AccountContainer>
     </AccountRoot>

@@ -4,7 +4,7 @@ import styled from "styled-components"
 const SectionRoot = styled(Paper)`
 display:flex;
 background-color: #ffffff;
-min-height:10rem;
+min-height:5rem;
 width:90%;
 margin: 2rem 0 1rem 0;
 flex-direction: column;
