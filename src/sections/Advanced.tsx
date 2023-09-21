@@ -471,36 +471,6 @@ function AdvancedSection() {
                 ) : (
                   <></>
                 )}
-                <LineSection>
-                  <FormControl>
-                    <InputLabel shrink={true}>GUI Language</InputLabel>
-                    <Select
-                      label="GUI Language"
-                      sx={{
-                        width: "20rem",
-                      }}
-                      displayEmpty={true}
-                      notched={true}
-                      renderValue={() => {
-                        return <MenuItem>{data.gui_language}</MenuItem>;
-                      }}
-                      onChange={(e: SelectChangeEvent) => {
-                        const newValue = e.target.value;
-                        if (currentTemplate.accounts !== undefined) {
-                          const accountsCopy = [...currentTemplate.accounts];
-                          accountsCopy[index].gui_language = newValue;
-                          setcurrentTemplate({
-                            ...currentTemplate,
-                            accounts: accountsCopy,
-                          });
-                        }
-                      }}
-                    >
-                      <MenuItem value="English">English</MenuItem>
-                      <MenuItem value="French">French</MenuItem>
-                    </Select>
-                  </FormControl>
-                </LineSection>
               </AccordionDetails>
             </Accordion>
           </AccountTab>

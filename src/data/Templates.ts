@@ -51,7 +51,6 @@ export type Account = {
   session_timer_refresher: number;
   session_timer_enable: boolean;
   session_timer_expire: number;
-  gui_language: String;
 };
 
 export const YealinkAccount: Account = {
@@ -73,17 +72,18 @@ export const YealinkAccount: Account = {
   session_timer_refresher: 1,
   session_timer_enable: false,
   session_timer_expire: 9000,
-  gui_language: "English",
 };
 
 export type Template = {
   accounts?: Account[];
+  language : string
   linekeys?: LineKey[];
   expansionkeys?: ExpansionKey[];
 };
 
 export const defaultTemplate: Template = {
   accounts: [{...YealinkAccount,account_number:1}],
+  language : "English",
   linekeys: [{...defaultLineKey, line_number:1},{...defaultLineKey, line_number:2},{...defaultLineKey, line_number:3}],
   expansionkeys: [{...defaultExpansionKey, line_number:1}],
 };

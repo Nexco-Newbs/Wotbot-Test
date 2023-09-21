@@ -171,6 +171,11 @@ function OutputSection() {
           );
         })}
       </LineSection>
+      <LineSection>
+        <span>
+            {"lang.gui = "+currentTemplate.language}
+        </span>
+      </LineSection>
     </Section>
   );
 }
