@@ -51,7 +51,7 @@ export type Account = {
   session_timer_refresher: number;
   session_timer_enable: boolean;
   session_timer_expire: number;
-  gui_language: "English" | "French";
+  gui_language: String;
 };
 
 export const YealinkAccount: Account = {
@@ -66,13 +66,13 @@ export const YealinkAccount: Account = {
   cid_source: 4,
   cp_source: 4,
   proxy_enable: false,
-  proxy_outbound_host: "",
+  proxy_outbound_host: "proxy.nx0.ca",
   proxy_outbound_port: 0,
   sip_trans_type: 0,
   srtp_encryption_option: 0,
-  session_timer_refresher: 0,
+  session_timer_refresher: 1,
   session_timer_enable: false,
-  session_timer_expire: 0,
+  session_timer_expire: 9000,
   gui_language: "English",
 };
 

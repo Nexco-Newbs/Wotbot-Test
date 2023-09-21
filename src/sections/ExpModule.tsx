@@ -28,6 +28,9 @@ const ExpKeyTab = styled(Paper)`
 `;
 
 const AddNewButton = styled(Button)`
+  padding: 0.75rem;
+  width: 20rem;
+  margin: auto;
   color: white;
   background-color: #2221219e;
   &:hover {
