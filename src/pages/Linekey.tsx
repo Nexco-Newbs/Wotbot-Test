@@ -21,7 +21,7 @@ function Linekey() {
             <LinekeyContainer>
                 <LinekeyModule/>
                 <OutputSection/>
-                <DebugSection/>
+                {/* <DebugSection/> */}
             </LinekeyContainer>
         </LinekeyRoot>
     )

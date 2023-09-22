@@ -2,7 +2,7 @@ export type LineKey = {
   line_number: number;
   type: number;
   line_value: number;
-  value: number;
+  value: string;
   label: string;
 };
 
@@ -10,7 +10,7 @@ export const defaultLineKey: LineKey = {
   line_number: 0,
   type: 0,
   line_value: 1,
-  value: 0,
+  value: "0",
   label: "John Doe",
 };
 
@@ -19,7 +19,7 @@ export type ExpansionKey = {
   line_number: number;
   type: number;
   line_value: number;
-  value: number;
+  value: string;
   label: string;
 };
 
@@ -28,7 +28,7 @@ export const defaultExpansionKey: ExpansionKey = {
   line_number: 0,
   type: 0,
   line_value: 1,
-  value: 0,
+  value: "0",
   label: "John Doe",
 };
 
@@ -82,8 +82,8 @@ export type Template = {
 };
 
 export const defaultTemplate: Template = {
-  accounts: [{...YealinkAccount,account_number:1}],
+  accounts: [],
   language : "English",
-  linekeys: [{...defaultLineKey, line_number:1},{...defaultLineKey, line_number:2},{...defaultLineKey, line_number:3}],
-  expansionkeys: [{...defaultExpansionKey, line_number:1}],
+  linekeys: [],
+  expansionkeys: [],
 };

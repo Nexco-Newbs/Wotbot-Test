@@ -137,7 +137,7 @@ function LinekeyModule() {
                 variant="outlined"
                 defaultValue={data.value}
                 onChange={(e) => {
-                  const newValue = parseInt(e.target.value);
+                  const newValue = e.target.value;
                   if (currentTemplate.linekeys !== undefined) {
                     const linekeysCopy = [...currentTemplate.linekeys];
                     linekeysCopy[index].value = newValue;
@@ -199,7 +199,7 @@ function LinekeyModule() {
             const linekeysCopy = [...currentTemplate.linekeys];
             linekeysCopy.push({
               ...defaultLineKey,
-              line_number: linekeysCopy.length + 1,
+              line_number: linekeysCopy.length===0? 1 : linekeysCopy[linekeysCopy.length-1].line_number+1,
             });
             setcurrentTemplate({
               ...currentTemplate,

@@ -116,18 +116,17 @@ function OutputSection() {
         })}
       </LineSection>
       <LineSection>
-        {linekeys?.map((data, index) => {
-          const newindex = index + 1;
+        {linekeys?.map((data) => {
           return (
             <span>
               <br />
-              {"linekey." + newindex + ".line = " + data.line_number}
+              {"linekey." + data.line_number+ ".line = " + data.line_value}
               <br />
-              {"linekey." + newindex + ".type = " + data.type}
+              {"linekey." + data.line_number + ".type = " + data.type}
               <br />
-              {"linekey." + newindex + ".value = " + data.value}
+              {"linekey." + data.line_number + ".value = " + data.value}
               <br />
-              {"linekey." + newindex + ".label = " + data.label}
+              {"linekey." + data.line_number + ".label = " + data.label}
             </span>
           );
         })}

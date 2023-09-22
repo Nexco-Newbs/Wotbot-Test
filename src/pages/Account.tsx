@@ -23,7 +23,7 @@ function Account() {
         <BasicSection />
         <AdvancedSection />
         <OutputSection/>
-        <DebugSection/>
+        {/* <DebugSection/> */}
       </AccountContainer>
     </AccountRoot>
   );

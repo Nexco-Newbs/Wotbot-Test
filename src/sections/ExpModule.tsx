@@ -136,7 +136,7 @@ function ExpModule() {
                 variant="outlined"
                 defaultValue={data.value || ""}
                 onChange={(e) => {
-                  const newValue = parseInt(e.target.value);
+                  const newValue = e.target.value;
                   if (currentTemplate.expansionkeys !== undefined) {
                     const expkeysCopy = [...currentTemplate.expansionkeys];
                     expkeysCopy[index].value = newValue;
