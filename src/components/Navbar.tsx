@@ -29,6 +29,8 @@ const NavbarButton = styled(Button)`
 background-color: #2221219e;
 color:white;
 margin : 0 1rem 0 1rem;
+padding: 0.5rem;
+font-size:large;
 &:hover {
     background-color: #222121f9;
   }
