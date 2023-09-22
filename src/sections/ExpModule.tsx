@@ -113,7 +113,17 @@ function ExpModule() {
                 sx={{
                   width: "8rem",
                 }}
-                disabled
+                onChange={(e) => {
+                  const newValue = parseInt(e.target.value);
+                  if (currentTemplate.expansionkeys !== undefined) {
+                    const expkeysCopy = [...currentTemplate.expansionkeys];
+                    expkeysCopy[index].line_number = newValue;
+                    setcurrentTemplate({
+                      ...currentTemplate,
+                      expansionkeys: expkeysCopy,
+                    });
+                  }
+                }}
               />
               <TextField
                 label="Label"
@@ -131,7 +141,7 @@ function ExpModule() {
                   }
                 }}
               />
-                <TextField
+              <TextField
                 label="Value"
                 variant="outlined"
                 defaultValue={data.value || ""}
@@ -148,7 +158,7 @@ function ExpModule() {
                 }}
               />
               <FormControl>
-                <InputLabel shrink >Key Type</InputLabel>
+                <InputLabel shrink>Key Type</InputLabel>
                 <Select
                   label="Key Type"
                   sx={{
@@ -197,7 +207,10 @@ function ExpModule() {
             const expKeysCopy = [...currentTemplate.expansionkeys];
             expKeysCopy.push({
               ...defaultExpansionKey,
-              line_number: expKeysCopy.length + 1,
+              line_number:
+                expKeysCopy.length === 0
+                  ? 1
+                  : expKeysCopy[expKeysCopy.length - 1].line_number + 1,
             });
             setcurrentTemplate({
               ...currentTemplate,

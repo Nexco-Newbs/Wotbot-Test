@@ -96,7 +96,7 @@ function LinekeyModule() {
           <LineKeyTab>
             <LineSection>
               <TextField
-                label="Line Number"
+                label="DSS Key Location"
                 variant="outlined"
                 defaultValue={data.line_number || ""}
                 sx={{
