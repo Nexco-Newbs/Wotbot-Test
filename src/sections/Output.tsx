@@ -20,9 +20,9 @@ function OutputSection() {
     <Section title="Output">
       <LineSection>
         {<span>
-          {currentTemplate.accounts?  <span>
+          {currentTemplate.accounts?  <></> :<span>
             {"#!version:1.0.0.1 \n\n##File header \"#!version:1.0.0.1\" can not be edited or deleted, and must be placed in the first line.##"}
-          </span>: <></>}
+          </span>}
           </span>}
       </LineSection>
       <LineSection>
