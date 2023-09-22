@@ -172,7 +172,7 @@ function OutputSection() {
       </LineSection>
       <LineSection>
         <span>
-            {"lang.gui = "+currentTemplate.language}
+            {currentTemplate.language==="" ? "" :"lang.gui = "+currentTemplate.language}
         </span>
       </LineSection>
     </Section>

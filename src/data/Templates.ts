@@ -83,7 +83,7 @@ export type Template = {
 
 export const defaultTemplate: Template = {
   accounts: [],
-  language : "English",
+  language : "",
   linekeys: [],
   expansionkeys: [],
 };

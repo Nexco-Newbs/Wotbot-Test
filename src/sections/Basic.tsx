@@ -71,16 +71,17 @@ function BasicSection() {
         <FormControl
           sx={{
             margin: "auto",
+            minWidth: "9rem",
           }}
         >
-          <InputLabel shrink={true}>Language</InputLabel>
+          <InputLabel>Language</InputLabel>
           <Select
             label="Language"
             displayEmpty={true}
-            notched={true}
-            renderValue={() => {
-              return <MenuItem>{currentTemplate.language}</MenuItem>;
-            }}
+            // notched={true}
+            // renderValue={() => {
+            //   return <MenuItem>{currentTemplate.language}</MenuItem>;
+            // }}
             onChange={(e: SelectChangeEvent) => {
               const newValue = e.target.value;
               if (currentTemplate !== undefined) {
