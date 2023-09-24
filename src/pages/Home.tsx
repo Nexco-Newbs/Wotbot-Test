@@ -1,5 +1,6 @@
 import { Paper } from "@mui/material";
 import styled from "styled-components";
+import Section from "../components/Section";
 
 const HomeRoot = styled.div`
   display: block;
@@ -12,18 +13,13 @@ const HomeContainer = styled.div`
   align-items: center;
 `;
 
-const MuiDiv = styled(Paper)`
-  display: flex;
-  background-color: #ffffff;
-  height: 10rem;
-  width: 10rem;
-`;
-
 function Home() {
   return (
     <HomeRoot>
       <HomeContainer>
-        <MuiDiv>MUI DIV</MuiDiv>
+        <Section title="Home">
+          <h1>Home Page</h1>
+        </Section>
       </HomeContainer>
     </HomeRoot>
   );
