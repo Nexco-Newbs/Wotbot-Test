@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MdMenu } from "react-icons/md";
 import { useState } from "react";
+import { pagesLinks } from "./PageRouter";
 
 const IconMenuRoot = styled.div`
   display: flex;
@@ -45,12 +46,13 @@ function IconMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>
-          <StyledLink to="/home">Home</StyledLink>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <StyledLink to="/templage">Templage</StyledLink>
-        </MenuItem>
+        {pagesLinks.map((data)=>{
+            return(
+                <MenuItem onClick={handleClose}>
+                <StyledLink to={data.link}>{data.name}</StyledLink>
+              </MenuItem>
+            )
+        })}
       </StyledMenu>
     </IconMenuRoot>
   );

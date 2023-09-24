@@ -3,6 +3,7 @@ import placeholderlogo from "../resources/logo_placeholder.png";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import IconMenu from "./IconMenu";
+import { pagesLinks } from "./PageRouter";
 
 const NavbarRoot = styled.div`
   display: flex;
@@ -45,17 +46,6 @@ const IconMenuContainer = styled.div`
   }
 `;
 
-const navbarLinks = [
-  {
-    name: "Home",
-    link: "/",
-  },
-  {
-    name: "Template Page",
-    link: "/templage",
-  },
-];
-
 function Navbar() {
   return (
     <NavbarRoot>
@@ -65,7 +55,7 @@ function Navbar() {
             <NavbarImg src={placeholderlogo} />
           </StyledLink>
           <NavbarButtons>
-            {navbarLinks.map((data) => {
+            {pagesLinks.map((data) => {
               return (
                 <StyledLink to={data.link}>
                   {" "}
