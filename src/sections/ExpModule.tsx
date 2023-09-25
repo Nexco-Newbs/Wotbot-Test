@@ -58,7 +58,7 @@ const expkeyTypes: expkeyType[] = [
   { number: 12, name: "Voicemail" },
   { number: 13, name: "SpeedDial" },
   { number: 14, name: "Intercom" },
-  { number: 15, name: "SpeedDial" },
+  { number: 15, name: "Line" },
   { number: 16, name: "BLF" },
   { number: 17, name: "URL" },
   { number: 18, name: "Group Listening" },
