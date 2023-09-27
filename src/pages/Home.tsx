@@ -19,10 +19,7 @@ function Home() {
       <HomeContainer>
         <Section title="Home">
           <h1>
-            <script
-              src="https://app.wotnot.io/chat-widget/4bP9xMhY5fn4154156308436zpCzHkGP.js"
-              defer
-            ></script>
+            Home
           </h1>
         </Section>
       </HomeContainer>
