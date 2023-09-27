@@ -1,4 +1,3 @@
-import { Paper } from "@mui/material";
 import styled from "styled-components";
 import Section from "../components/Section";
 
@@ -20,10 +19,6 @@ function Home() {
         <Section title="Home">
           <h1>
             Home
-            <script
-              src="https://app.wotnot.io/chat-widget/4bP9xMhY5fn4154156308436zpCzHkGP.js"
-              defer
-            ></script>
           </h1>
         </Section>
       </HomeContainer>
