@@ -76,14 +76,19 @@ export const YealinkAccount: Account = {
 
 export type Template = {
   accounts?: Account[];
-  language : string
+  language: string;
   linekeys?: LineKey[];
   expansionkeys?: ExpansionKey[];
 };
 
 export const defaultTemplate: Template = {
   accounts: [],
-  language : "",
+  language: "",
   linekeys: [],
-  expansionkeys: [],
+  expansionkeys: [
+    { ...defaultExpansionKey, line_number: 2, label: "Boe Jiden" },
+    { ...defaultExpansionKey, line_number: 4, label: "Tronald Dump" },
+    { ...defaultExpansionKey, line_number: 6, label: "Big Papa" },
+    { ...defaultExpansionKey, line_number: 8, label: "Wendys" },
+  ],
 };

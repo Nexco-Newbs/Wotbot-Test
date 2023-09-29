@@ -33,7 +33,7 @@ const StyledButton = styled(Button)`
   display: flex;
   background-color: green;
   color: white;
-  width: 10rem;
+  min-width: 10rem;
   height: 4rem;
   &:hover {
     background-color: #00800068;
@@ -96,10 +96,8 @@ const expkeyTypes: expkeyType[] = [
 ];
 
 function BetterExpModule() {
-  const { currentTemplate, setcurrentTemplate }: globalContextTypes =
+  const { currentTemplate, setcurrentTemplate,currentExpKey, setcurrentExpKey }: globalContextTypes =
     useContext(GlobalContext);
-  const [currentExpKey, setcurrentExpKey] =
-    useState<ExpansionKey>(defaultExpansionKey);
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -184,15 +182,38 @@ function BetterExpModule() {
           <SubInputSection>
             <StyledButton
               onClick={() => {
+                const expKeyCopy = currentTemplate.expansionkeys
+                  ? currentTemplate.expansionkeys
+                  : [];
+                const sortedexpKeyCopy = expKeyCopy.sort((a, b) => {
+                  return a.line_number - b.line_number;
+                });
+
+                if (!flipped) {
+                  Array.from({ length: 20 }).map((_, index) => {
+                    if (
+                      sortedexpKeyCopy.find(
+                        (expkey) => expkey.line_number === index
+                      )
+                    ) {
+                      console.log("FOUND" + index);
+                    }
+                  });
+                }
                 const b = !flipped;
                 setFlipped(b);
               }}
             >
               Flip
             </StyledButton>
+            <StyledButton>Sort In Alphabetical order</StyledButton>
+            <StyledButton>Populate Empty</StyledButton>
+            <StyledButton>Undo</StyledButton>
           </SubInputSection>
         </InputContainer>
-        <Exp50 flipped={flipped} />
+        <Exp50
+          flipped={flipped}
+        />
       </Container>
     </Section>
   );

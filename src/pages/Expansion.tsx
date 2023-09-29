@@ -22,7 +22,7 @@ function Expansion() {
             <ExpansionContainer>
                 <BetterExpModule/>
                 <OutputSection/>
-                {/* <DebugSection/> */}
+                <DebugSection/>
             </ExpansionContainer>
         </ExpansionRoot>
     );

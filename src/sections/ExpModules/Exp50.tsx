@@ -1,6 +1,8 @@
 import { Paper } from "@mui/material";
 import styled from "styled-components";
 import { ExpansionKey, defaultExpansionKey } from "../../data/Templates";
+import { useContext } from "react";
+import { globalContextTypes, GlobalContext } from "../../App";
 
 const Exp50Root = styled(Paper)`
   background-color: #383737;
@@ -53,7 +55,7 @@ const BottomSection = styled.div`
   background-color: #2a2a36;
   justify-content: center;
   align-items: center;
-  min-height: 10rem;
+  min-height: 7rem;
   margin-top: 3rem;
 `;
 
@@ -73,6 +75,25 @@ const PageButton = styled.div`
 const testExpKeyList: ExpansionKey[] = [
   { ...defaultExpansionKey, module_number: 1, line_number: 1 },
   { ...defaultExpansionKey, module_number: 1, line_number: 2 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 3 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 4 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 5 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 6 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 7 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 8 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 9 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 10 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 11 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 12 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 13 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 14 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 15 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 16 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 1 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 1 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 1 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 1 },
+  { ...defaultExpansionKey, module_number: 1, line_number: 2 },
   { ...defaultExpansionKey, module_number: 2, line_number: 1 },
   { ...defaultExpansionKey, module_number: 2, line_number: 2 },
   { ...defaultExpansionKey, module_number: 2, line_number: 3 },
@@ -88,27 +109,49 @@ type Exp50Props = {
 
 function Exp50({ flipped }: Exp50Props) {
   const noOfLines = 10;
+  const { currentTemplate,currentExpKey, setcurrentExpKey }: globalContextTypes = useContext(GlobalContext);
+
+  const expKeys = currentTemplate.expansionkeys
+    ? [...currentTemplate.expansionkeys]
+    : [];
   return (
     <Exp50Root>
       <Header>Yealink</Header>
       {Array.from({ length: noOfLines }).map((_, index) => {
-        const pairIndex =  flipped? index + index :index;
-        const i = flipped? pairIndex+1 : pairIndex+1;
-        const j = flipped? pairIndex+2: pairIndex+11;
+        // // const i = flipped ? index + index + 1 : index + 1;
+        // const j = flipped ? index + index + 2 : index + 11;
+        const i = index + index + 1;
+        const j = index + index + 2;
+        // const flipped_i = index + 1;
+        // const flipped_j = index + 11;
+        const leftElement = expKeys.find((expkey) => expkey.line_number === i);
+        const rightElement = expKeys.find((expkey) => expkey.line_number === j);
         return (
           <ExpLineSection>
-            <SideButton />
+            <SideButton
+              onClick={() => {
+                setcurrentExpKey(
+                  leftElement ?? { ...defaultExpansionKey, line_number: i+1 }
+                );
+              }}
+            >
+              {i}
+            </SideButton>
             <ScreenSection>
               <ScreenNames>
-                {/* <p>{index}</p>
-                <p>{index + 10}</p> */}
-                {/* <p>{index+1}</p>
-                <p>{index + 2}</p> */}
-                  <p>{i}</p>
-                <p>{j}</p>
+                <p>{leftElement ? leftElement.label : ""}</p>
+                <p>{rightElement ? rightElement.label : ""}</p>
               </ScreenNames>
             </ScreenSection>
-            <SideButton />
+            <SideButton
+              onClick={() => {
+                setcurrentExpKey(
+                  rightElement ?? { ...defaultExpansionKey, line_number: i+1 }
+                );
+              }}
+            >
+              {j}
+            </SideButton>
           </ExpLineSection>
         );
       })}
