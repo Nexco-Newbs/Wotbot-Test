@@ -85,10 +85,5 @@ export const defaultTemplate: Template = {
   accounts: [],
   language: "",
   linekeys: [],
-  expansionkeys: [
-    { ...defaultExpansionKey, line_number: 2, label: "Boe Jiden" },
-    { ...defaultExpansionKey, line_number: 4, label: "Tronald Dump" },
-    { ...defaultExpansionKey, line_number: 6, label: "Big Papa" },
-    { ...defaultExpansionKey, line_number: 8, label: "Wendys" },
-  ],
+  expansionkeys: [],
 };

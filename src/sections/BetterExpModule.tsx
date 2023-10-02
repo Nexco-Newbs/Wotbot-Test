@@ -96,8 +96,11 @@ const expkeyTypes: expkeyType[] = [
 ];
 
 function BetterExpModule() {
-  const { currentTemplate, setcurrentTemplate,currentExpKey, setcurrentExpKey }: globalContextTypes =
-    useContext(GlobalContext);
+  const {
+    currentTemplate,
+    setcurrentTemplate,
+    currentExpKey,
+  }: globalContextTypes = useContext(GlobalContext);
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -152,7 +155,11 @@ function BetterExpModule() {
                   const newValue = e.target.value;
                   if (currentTemplate.expansionkeys !== undefined) {
                     const expkeysCopy = [...currentTemplate.expansionkeys];
-                    expkeysCopy[currentExpKey.line_number].label = newValue;
+                    expkeysCopy.forEach((data) => {
+                      if (data.line_number === currentExpKey.line_number) {
+                        data.label = newValue;
+                      }
+                    });
                     setcurrentTemplate({
                       ...currentTemplate,
                       expansionkeys: expkeysCopy,
@@ -213,9 +220,7 @@ function BetterExpModule() {
             <StyledButton>Undo</StyledButton>
           </SubInputSection>
         </InputContainer>
-        <Exp50
-          flipped={flipped}
-        />
+        <Exp50 flipped={flipped} />
       </Container>
     </Section>
   );

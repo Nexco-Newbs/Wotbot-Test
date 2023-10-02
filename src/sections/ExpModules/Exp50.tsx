@@ -1,7 +1,7 @@
 import { Paper } from "@mui/material";
 import styled from "styled-components";
 import { ExpansionKey, defaultExpansionKey } from "../../data/Templates";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { globalContextTypes, GlobalContext } from "../../App";
 
 const Exp50Root = styled(Paper)`
@@ -109,7 +109,12 @@ type Exp50Props = {
 
 function Exp50({ flipped }: Exp50Props) {
   const noOfLines = 10;
-  const { currentTemplate,currentExpKey, setcurrentExpKey }: globalContextTypes = useContext(GlobalContext);
+  const [offset, setOffset] = useState(0);
+  const {
+    currentTemplate,
+    setcurrentTemplate,
+    setcurrentExpKey,
+  }: globalContextTypes = useContext(GlobalContext);
 
   const expKeys = currentTemplate.expansionkeys
     ? [...currentTemplate.expansionkeys]
@@ -120,8 +125,8 @@ function Exp50({ flipped }: Exp50Props) {
       {Array.from({ length: noOfLines }).map((_, index) => {
         // // const i = flipped ? index + index + 1 : index + 1;
         // const j = flipped ? index + index + 2 : index + 11;
-        const i = index + index + 1;
-        const j = index + index + 2;
+        const i = index + index + 1 +offset;
+        const j = index + index + 2 +offset;
         // const flipped_i = index + 1;
         // const flipped_j = index + 11;
         const leftElement = expKeys.find((expkey) => expkey.line_number === i);
@@ -130,9 +135,20 @@ function Exp50({ flipped }: Exp50Props) {
           <ExpLineSection>
             <SideButton
               onClick={() => {
-                setcurrentExpKey(
-                  leftElement ?? { ...defaultExpansionKey, line_number: i }
-                );
+                if (leftElement !== undefined) {
+                  setcurrentExpKey(leftElement);
+                } else {
+                  const newElement = { ...defaultExpansionKey, line_number: i };
+                  expKeys.push(newElement);
+                  const sorted = expKeys.sort(
+                    (a, b) => a.line_number - b.line_number
+                  );
+                  setcurrentTemplate({
+                    ...currentTemplate,
+                    expansionkeys: sorted,
+                  });
+                  setcurrentExpKey(newElement);
+                }
               }}
             >
               {i}
@@ -145,9 +161,23 @@ function Exp50({ flipped }: Exp50Props) {
             </ScreenSection>
             <SideButton
               onClick={() => {
-                setcurrentExpKey(
-                  rightElement ?? { ...defaultExpansionKey, line_number: i+1 }
-                );
+                if (rightElement !== undefined) {
+                  setcurrentExpKey(rightElement);
+                } else {
+                  const newElement = {
+                    ...defaultExpansionKey,
+                    line_number: i + 1,
+                  };
+                  expKeys.push(newElement);
+                  const sorted = expKeys.sort(
+                    (a, b) => a.line_number - b.line_number
+                  );
+                  setcurrentTemplate({
+                    ...currentTemplate,
+                    expansionkeys: sorted,
+                  });
+                  setcurrentExpKey(newElement);
+                }
               }}
             >
               {j}
@@ -156,9 +186,15 @@ function Exp50({ flipped }: Exp50Props) {
         );
       })}
       <BottomSection>
-        <PageButton>1</PageButton>
-        <PageButton>2</PageButton>
-        <PageButton>3</PageButton>
+        <PageButton onClick={()=>{
+          setOffset(0)
+        }}>1</PageButton>
+        <PageButton onClick={()=>{
+          setOffset(20)
+        }}>2</PageButton>
+        <PageButton onClick={()=>{
+          setOffset(40)
+        }}>3</PageButton>
       </BottomSection>
     </Exp50Root>
   );
