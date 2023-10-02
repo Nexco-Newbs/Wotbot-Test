@@ -123,6 +123,7 @@ function BetterExpModule() {
                 label="Line Number"
                 variant="outlined"
                 defaultValue={currentExpKey.line_number || ""}
+                InputLabelProps={{ shrink: true }}
                 sx={{
                   width: "8rem",
                 }}
@@ -145,7 +146,8 @@ function BetterExpModule() {
               <TextField
                 label="Label"
                 variant="outlined"
-                defaultValue={currentExpKey.label || ""}
+                // defaultValue={currentExpKey.label || ""}
+                value={currentExpKey.label}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   if (currentTemplate.expansionkeys !== undefined) {

@@ -131,7 +131,7 @@ function Exp50({ flipped }: Exp50Props) {
             <SideButton
               onClick={() => {
                 setcurrentExpKey(
-                  leftElement ?? { ...defaultExpansionKey, line_number: i+1 }
+                  leftElement ?? { ...defaultExpansionKey, line_number: i }
                 );
               }}
             >
