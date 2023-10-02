@@ -1,9 +1,17 @@
 import styled from "styled-components";
 import Section from "../components/Section";
-import { Button, Paper, TextField } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Paper,
+  Select,
+  SelectChangeEvent,
+  TextField,
+} from "@mui/material";
 import Exp50 from "./ExpModules/Exp50";
 import { useContext, useState } from "react";
-import { ExpansionKey, defaultExpansionKey } from "../data/Templates";
 import { globalContextTypes, GlobalContext } from "../App";
 
 const Container = styled.div`
@@ -45,6 +53,7 @@ const LineSection = styled.div`
   display: flex;
   margin: 1.5rem;
   gap: 2rem;
+  align-items: center;
 `;
 
 type expkeyType = {
@@ -109,7 +118,6 @@ function BetterExpModule() {
         <InputContainer>
           <InputSection>
             <LineSection>
-              {" "}
               <TextField
                 label="Module Number"
                 variant="outlined"
@@ -121,7 +129,6 @@ function BetterExpModule() {
               />
             </LineSection>
             <LineSection>
-              {" "}
               <TextField
                 label="Line Number"
                 variant="outlined"
@@ -130,26 +137,13 @@ function BetterExpModule() {
                 sx={{
                   width: "8rem",
                 }}
-                onChange={(e) => {
-                  const newValue = parseInt(e.target.value);
-                  if (currentTemplate.expansionkeys !== undefined) {
-                    const expkeysCopy = [...currentTemplate.expansionkeys];
-                    expkeysCopy[currentExpKey.line_number].line_number =
-                      newValue;
-                    setcurrentTemplate({
-                      ...currentTemplate,
-                      expansionkeys: expkeysCopy,
-                    });
-                  }
-                }}
+                disabled
               />
             </LineSection>
             <LineSection>
-              {" "}
               <TextField
                 label="Label"
                 variant="outlined"
-                // defaultValue={currentExpKey.label || ""}
                 value={currentExpKey.label}
                 onChange={(e) => {
                   const newValue = e.target.value;
@@ -169,7 +163,50 @@ function BetterExpModule() {
               />
             </LineSection>
             <LineSection>
-              {" "}
+              <FormControl>
+                <InputLabel shrink>Key Type</InputLabel>
+                <Select
+                  label="Key Type"
+                  sx={{
+                    width: "15rem",
+                  }}
+                  displayEmpty={true}
+                  notched={true}
+                  renderValue={() => {
+                    const element = expkeyTypes.find(
+                      (item) => item.number === currentExpKey.type
+                    );
+                    return (
+                      <MenuItem>
+                        {element?.number + " - " + element?.name}
+                      </MenuItem>
+                    );
+                  }}
+                  onChange={(e: SelectChangeEvent) => {
+                    const newValue = parseInt(e.target.value);
+                    if (currentTemplate.expansionkeys !== undefined) {
+                      const expkeysCopy = [...currentTemplate.expansionkeys];
+                      expkeysCopy.forEach((data) => {
+                        if (data.line_number === currentExpKey.line_number) {
+                          data.type = newValue;
+                        }
+                      });
+                      setcurrentTemplate({
+                        ...currentTemplate,
+                        expansionkeys: expkeysCopy,
+                      });
+                    }
+                  }}
+                >
+                  {expkeyTypes.map((data) => {
+                    return (
+                      <MenuItem value={data.number}>
+                        {data.number + " - " + data.name}
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </FormControl>
               <TextField
                 label="Value"
                 variant="outlined"
@@ -178,7 +215,11 @@ function BetterExpModule() {
                   const newValue = e.target.value;
                   if (currentTemplate.expansionkeys !== undefined) {
                     const expkeysCopy = [...currentTemplate.expansionkeys];
-                    expkeysCopy[currentExpKey.line_number].value = newValue;
+                    expkeysCopy.forEach((data) => {
+                      if (data.line_number === currentExpKey.line_number) {
+                        data.value = newValue;
+                      }
+                    });
                     setcurrentTemplate({
                       ...currentTemplate,
                       expansionkeys: expkeysCopy,
@@ -188,7 +229,7 @@ function BetterExpModule() {
               />
             </LineSection>
           </InputSection>
-          <SubInputSection>
+          {/* <SubInputSection>
             <StyledButton
               onClick={() => {
                 const expKeyCopy = currentTemplate.expansionkeys
@@ -218,7 +259,7 @@ function BetterExpModule() {
             <StyledButton>Sort In Alphabetical order</StyledButton>
             <StyledButton>Populate Empty</StyledButton>
             <StyledButton>Undo</StyledButton>
-          </SubInputSection>
+          </SubInputSection> */}
         </InputContainer>
         <Exp50 flipped={flipped} />
       </Container>
