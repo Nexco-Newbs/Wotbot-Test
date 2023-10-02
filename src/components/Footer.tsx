@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import placeholderlogo from "../resources/logo-placeholder2.png"
+import nexcowhite from "../resources/nexco_logo_white.png"
 
 const FooterRoot = styled.div`
 display:block;
@@ -22,7 +22,7 @@ height: 5rem;
 
 function Footer() {
     return (<FooterRoot><FooterContainer>
-        <FooterLogo src={placeholderlogo} />
+        <FooterLogo src={nexcowhite} />
     </FooterContainer></FooterRoot>)
 }
 

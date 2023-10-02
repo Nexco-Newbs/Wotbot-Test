@@ -1,26 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/Home";
-import Templage from "../pages/Templage";
 import ErrorPage from "../pages/Error";
-
-
-export const pagesLinks = [ {
-    name: "Home",
-    link: "/",
-  },
-  {
-    name: "Template Page",
-    link: "/templage",
-  },]
+import Account from "../pages/Account";
+import Linekey from "../pages/Linekey";
+import Expansion from "../pages/Expansion";
 
 function PageRouter() {
-  return (
-    <Routes>
-      <Route index element={<Home />} />
-      <Route path="templage" element={<Templage />} />
-      <Route path="*" element={<ErrorPage />} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route index element={<Account />} />
+            <Route path="linekey" element={<Linekey />} />
+            <Route path="expansion" element={<Expansion />} />
+            <Route path="*" element={<ErrorPage />} />
+        </Routes>
+    );
 }
 
 export default PageRouter;

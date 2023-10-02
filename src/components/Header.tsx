@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 const HeaderRoot = styled.div`
 display:block;
-min-height: 15vh;
+min-height: 10vh;
 background-color: #ffffff;
 margin: auto;
 `

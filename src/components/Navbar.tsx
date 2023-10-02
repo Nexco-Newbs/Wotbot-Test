@@ -1,5 +1,6 @@
-import { AppBar, Toolbar, Button } from "@mui/material";
-import placeholderlogo from "../resources/logo_placeholder.png";
+
+import { AppBar, Toolbar,Button } from "@mui/material";
+import nexcoblack from "../resources/nexco_logo_black.png"
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import IconMenu from "./IconMenu";
@@ -21,9 +22,9 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 const NavbarImg = styled.img`
-  display: flex;
-  height: 8rem;
-`;
+    display:flex;
+    height:7rem;
+`
 const NavbarButtons = styled.div`
   margin-left: auto;
   @media (max-width: 1300px) {
@@ -31,46 +32,52 @@ const NavbarButtons = styled.div`
   }
 `;
 const NavbarButton = styled(Button)`
-  background-color: #2221219e;
-  color: white;
-  &:hover {
+background-color: #2221219e;
+color:white;
+margin : 0 1rem 0 1rem;
+padding: 0.5rem;
+font-size:large;
+&:hover {
     background-color: #222121f9;
   }
-`;
-
-const IconMenuContainer = styled.div`
-  display: none;
-  @media (max-width: 1300px) {
-    display: block;
-    margin-left: auto;
-  }
-`;
+`
+const navbarLinks = [
+    {
+        name: "Account",
+        link: "/",
+    },
+    {
+        name: "Linekey",
+        link: "/linekey",
+    },
+    {
+        name: "Expansion Module",
+        link: "/expansion",
+    }
+];
 
 function Navbar() {
-  return (
-    <NavbarRoot>
-      <StyledAppBar>
-        <Toolbar>
-          <StyledLink to="/">
-            <NavbarImg src={placeholderlogo} />
-          </StyledLink>
-          <NavbarButtons>
-            {pagesLinks.map((data) => {
-              return (
-                <StyledLink to={data.link}>
-                  {" "}
-                  <NavbarButton>{data.name}</NavbarButton>
-                </StyledLink>
-              );
-            })}
-          </NavbarButtons>
-          <IconMenuContainer>
-            <IconMenu />
-          </IconMenuContainer>
-        </Toolbar>
-      </StyledAppBar>
-    </NavbarRoot>
-  );
+    return (
+        <NavbarRoot>
+            <StyledAppBar>
+                <Toolbar>
+                    <StyledLink to="/">
+                        <NavbarImg src={nexcoblack}/>
+                    </StyledLink>
+                    <NavbarButtons>
+                        {navbarLinks.map((data) => {
+                            return (
+                                <StyledLink to={data.link}>
+                                    {" "}
+                                    <NavbarButton>{data.name}</NavbarButton>
+                                </StyledLink>
+                            );
+                        })}
+                    </NavbarButtons>
+                </Toolbar>
+            </StyledAppBar>
+        </NavbarRoot>
+    );
 }
 
 export default Navbar;
